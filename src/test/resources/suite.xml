@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="My test suite">
+    <test name="First test">
+        <classes>
+            <!--<class name="org.globantTestNG.tests.BaseTests">
+            </class>-->
+            <class name="org.globantTestNG.tests.Login">
+            </class>
+            <class name="org.globantTestNG.tests.Logout">
+            </class>
+            <class name="org.globantTestNG.tests.Deactivate">
+            </class>
+        </classes>
+    </test>
+</suite>
