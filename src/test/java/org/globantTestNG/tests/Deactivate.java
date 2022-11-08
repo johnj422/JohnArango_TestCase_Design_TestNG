@@ -3,7 +3,7 @@ package org.globantTestNG.tests;
 import org.testng.annotations.*;
 import org.tinylog.Logger;
 
-public class Deactivate extends BaseTests{
+public class Deactivate extends BaseSteps {
 
     @BeforeMethod
     public void checkLogin(){

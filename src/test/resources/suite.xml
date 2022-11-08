@@ -3,8 +3,6 @@
 <suite name="My test suite">
     <test name="First test">
         <classes>
-            <!--<class name="org.globantTestNG.tests.BaseTests">
-            </class>-->
             <class name="org.globantTestNG.tests.Login">
             </class>
             <class name="org.globantTestNG.tests.Logout">

@@ -3,23 +3,22 @@ package org.globantTestNG.tests;
 import org.tinylog.Logger;
 import org.testng.annotations.*;
 
-public class BaseTests {
-
-
+public class BaseSteps {
 
     @BeforeSuite
     public void haveAccount(){
-        Logger.info("Must have a valid account at espn.com");
+        Logger.info("Must have a valid account at espn.com \n");
     }
 
     @BeforeClass
     public void openBrowser() {
         Logger.info("Browser opened");
+        Logger.info("Browse to espn.com");
     }
 
     @AfterClass
     public void closeBrowser(){
-        Logger.info("Browser closed");
+        Logger.info("Browser closed \n");
     }
 
 }
