@@ -1,18 +1,17 @@
 package org.globantTestNG.tests;
 
 import org.testng.annotations.*;
-import org.testng.log4testng.Logger;
+import org.tinylog.Logger;
 
 public class Logout extends BaseTests {
-    Logger log = Logger.getLogger(Logout.class);
 
     @BeforeMethod
     public void checkLogin(){
-        log.info("User must be logged in");
+        Logger.info("User must be logged in");
     }
 
     @Test
     public void testLogout(){
-        log.info("Logout from Espn");
+        Logger.info("Logout from Espn");
     }
 }
