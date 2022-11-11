@@ -1,9 +1,9 @@
-package org.globantTestNG.tests;
+package org.espn.tests;
 
 import org.testng.annotations.*;
 import org.tinylog.Logger;
 
-public class Login extends BaseSteps {
+public class LoginTest extends BaseTest {
 
     @Test
     public void testLogin(){

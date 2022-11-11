@@ -1,9 +1,9 @@
-package org.globantTestNG.tests;
+package org.espn.tests;
 
 import org.tinylog.Logger;
 import org.testng.annotations.*;
 
-public class BaseSteps {
+public class BaseTest {
 
     @BeforeSuite
     public void haveAccount(){

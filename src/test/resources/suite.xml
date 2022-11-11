@@ -3,11 +3,11 @@
 <suite name="My test suite">
     <test name="First test">
         <classes>
-            <class name="org.globantTestNG.tests.Login">
+            <class name="org.espn.tests.LoginTest">
             </class>
-            <class name="org.globantTestNG.tests.Logout">
+            <class name="org.espn.tests.LogoutTest">
             </class>
-            <class name="org.globantTestNG.tests.Deactivate">
+            <class name="org.espn.tests.DeactivateUserTest">
             </class>
         </classes>
     </test>
