@@ -1,14 +1,28 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="My test suite">
-    <test name="First test">
+<suite name="Test Suite ESPN">
+    <listeners>
+        <listener class-name="org.espn.utils.Listener"/>
+    </listeners>
+    
+    <parameter name="url" value="https://www.espnqa.com/?src=com&_adblock=true&espn=cloud"/>
+    
+    <test name="Login Test">
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.LoginTest">
-            </class>
-            <class name="org.espn.tests.LogoutTest">
-            </class>
-            <class name="org.espn.tests.DeactivateUserTest">
-            </class>
+            <class name="org.espn.tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="Logout Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.espn.tests.LogoutTest"/>
+        </classes>
+    </test>
+    <test name="Deactivate Account Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="org.espn.tests.DeactivateAccountTest"/>
         </classes>
     </test>
 </suite>

@@ -3,7 +3,7 @@ package org.espn.tests;
 import org.testng.annotations.*;
 import org.tinylog.Logger;
 
-public class DeactivateUserTest extends BaseTest {
+public class DeactivateAccountTest extends BaseTest {
 
     @BeforeMethod
     public void checkLogin(){
