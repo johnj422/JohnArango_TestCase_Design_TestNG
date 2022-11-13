@@ -1,24 +1,40 @@
 package org.espn.tests;
 
+import org.espn.configuration.Driver;
+import org.espn.configuration.WebOperations;
+import org.openqa.selenium.WebDriver;
 import org.tinylog.Logger;
 import org.testng.annotations.*;
+import static java.lang.String.format;
 
-public class BaseTest {
+public class BaseTest extends WebOperations {
 
-    @BeforeSuite
-    public void haveAccount(){
-        Logger.info("Must have a valid account at espn.com \n");
+    private Driver driver;
+
+    public BaseTest(WebDriver driver) {
+        super(driver);
     }
 
-    @BeforeClass
-    public void openBrowser() {
-        Logger.info("Browser opened");
-        Logger.info("Browse to espn.com");
+
+    @Parameters({"browser", "url"})
+
+
+
+    @BeforeTest
+    public void testSetup(String browser, String url){
+        driver = new Driver(browser);
+        Logger.info("Deleting all cookies");
+        driver.getDriver().manage().deleteAllCookies();
+        Logger.info(format("Navigating to %s", url));
+        driver.getDriver().get(url);
+        driver.getDriver().manage().window().maximize();
+
     }
 
-    @AfterClass
-    public void closeBrowser(){
-        Logger.info("Browser closed \n");
-    }
+/*    @AfterSuite
+    public void teardown(){
+        driver.getDriver().quit();
+    }*/
+
 
 }
