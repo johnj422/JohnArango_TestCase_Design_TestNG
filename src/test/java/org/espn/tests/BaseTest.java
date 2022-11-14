@@ -1,40 +1,44 @@
 package org.espn.tests;
 
-import org.espn.configuration.Driver;
-import org.espn.configuration.WebOperations;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
-import org.tinylog.Logger;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import org.tinylog.Logger;
 import static java.lang.String.format;
-
-public class BaseTest extends WebOperations {
-
-    private Driver driver;
-
-    public BaseTest(WebDriver driver) {
-        super(driver);
-    }
+import org.espn.pages.HomePage;
 
 
-    @Parameters({"browser", "url"})
+import java.time.Duration;
 
+public class BaseTest {
 
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected HomePage homePage;
+    @Parameters({"url"})
 
-    @BeforeTest
-    public void testSetup(String browser, String url){
-        driver = new Driver(browser);
+    @BeforeMethod
+    public void setup(String url){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5L));
         Logger.info("Deleting all cookies");
-        driver.getDriver().manage().deleteAllCookies();
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
         Logger.info(format("Navigating to %s", url));
-        driver.getDriver().get(url);
-        driver.getDriver().manage().window().maximize();
+        driver.get(url);
 
+        homePage = new HomePage(driver);
     }
 
-/*    @AfterSuite
+    @AfterMethod
     public void teardown(){
-        driver.getDriver().quit();
-    }*/
-
+        Logger.info("Shutting down");
+        driver.quit();
+    }
 
 }

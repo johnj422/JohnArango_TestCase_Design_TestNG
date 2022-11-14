@@ -10,6 +10,7 @@
     <test name="Login Test">
         <parameter name="browser" value="chrome"/>
         <classes>
+            <class name="org.espn.tests.BaseTest"/>
             <class name="org.espn.tests.LoginTest"/>
         </classes>
     </test>
