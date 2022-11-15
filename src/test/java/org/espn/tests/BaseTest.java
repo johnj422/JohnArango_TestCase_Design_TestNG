@@ -34,6 +34,7 @@ public class BaseTest {
         driver.get(url);
 
         homePage = new HomePage(driver);
+
     }
 
     /*@AfterMethod

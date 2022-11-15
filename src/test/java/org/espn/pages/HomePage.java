@@ -1,6 +1,5 @@
 package org.espn.pages;
 
-import org.espn.tests.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +11,12 @@ import java.util.stream.Stream;
 
 public class HomePage {
     String userFrameModal = "oneid-iframe";
+
+    @FindBy(css = ".promo-banner-container > iframe")
+    private WebElement promoBannerIFrame;
+
+    @FindBy(css = "#fittPageContainer .PromoBanner__CloseBtn")
+    private WebElement bannerCloseButton;
     @FindBy(css = "#global-user-trigger")
     private WebElement userSession;
 
@@ -68,6 +73,18 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+    }
+
+    public boolean validatePromoBanner(){
+        return promoBannerIFrame.isDisplayed();
+    }
+
+    public WebElement getBannerCloseButton() {
+        return bannerCloseButton;
+    }
+
+    public WebElement getPromoBannerIFrame() {
+        return promoBannerIFrame;
     }
 
     public WebElement getUserSession() {
