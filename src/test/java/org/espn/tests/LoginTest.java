@@ -1,34 +1,33 @@
 package org.espn.tests;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import org.tinylog.Logger;
 
-import static java.lang.String.format;
-
 public class LoginTest extends BaseTest{
-    @Test
-    public void testClick() throws InterruptedException {
-        try {
-            waitForVisibility(homePage.getUserSession());
-            Logger.info("Showing user iFrame...");
-        } catch (Error e){
-            Logger.error(format(e.getMessage()));
-        }
+    @Test(priority = 1)
+    public void loginTests() {
 
-        try {
-            clickElement(homePage.getUserLogin());
-            Logger.info("Login window...");
-        } catch (Error e){
-            Logger.error(format("Login window error " + e.getMessage()));
-        }
-
+        waitForVisibility(homePage.getUserSession());
+        Logger.info("Showing user iFrame...");
+        clickElement(homePage.getUserLogin());
+        Logger.info("Login window...");
         Logger.info("Switching to iFrame...");
-        WebElement frame = homePage.getUserFrame();
-        driver.switchTo().frame("oneid-iframe");
+        driver.switchTo().frame(homePage.getUserFrameModal());
+        Logger.info("Validating ESPN Logo...");
+        waitForVisibility(homePage.getEspnLogo());
+        Logger.info("Validating Log In button...");
+        waitForVisibility(homePage.getBtnSubmit());
+        Logger.info("Validating Sign Up button...");
+        waitForVisibility(homePage.getBtnCreateAccount());
         Logger.info("Sending userEmail...");
-        homePage.getUserEmail().sendKeys("test");
+        homePage.getUserEmail().sendKeys("salmones_factores_02@icloud.com");
+        Logger.info("Sending userPassword...");
+        homePage.getUserPassword().sendKeys("Test234*56");
+        Logger.info("Login In....");
+        clickElement(homePage.getBtnSubmit());
     }
     public void clickElement(WebElement element) {
         waitForClickable(element);
