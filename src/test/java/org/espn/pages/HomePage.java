@@ -54,7 +54,7 @@ public class HomePage {
     @FindBy(css = ".user")
     private WebElement userOnline;
 
-    @FindBy(css = "li[class='user hover'] li[class='display-user']")
+    @FindBy(css = ".display-user")
     private WebElement userOffline;
 
     @FindBy(css = ".display-user > span")
@@ -62,6 +62,9 @@ public class HomePage {
 
     @FindBy(css = "li[class='user hover'] div[class='global-user'] div[class='global-user-container'] ul[class='account-management'] li a[class='small']")
     private WebElement logOutButton;
+
+    @FindBy(css = "div[class='container'] li:nth-child(5) a:nth-child(1)")
+    private WebElement profileLink;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -137,5 +140,7 @@ public class HomePage {
         return logOutButton;
     }
 
-
+    public WebElement getProfileLink() {
+        return profileLink;
+    }
 }

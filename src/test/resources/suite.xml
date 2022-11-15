@@ -10,7 +10,8 @@
     <test name="ESPN Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.LogOut"/>
+            <class name="org.espn.tests.LogOutTest"/>
+            <!--<class name="org.espn.tests.DeactivateUserTest"/>-->
         </classes>
     </test>
 
