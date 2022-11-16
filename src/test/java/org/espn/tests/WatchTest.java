@@ -11,6 +11,7 @@ public class WatchTest extends LoginTest{
     protected WatchPage watchPage;
 
     @Parameters({"user"})
+
     @Test(priority = 2)
     public void watchTest(String user){
         watchPage = new WatchPage(driver.getDriver());
