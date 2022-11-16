@@ -6,11 +6,14 @@
     </listeners>
     
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"/>
-    
+    <parameter name="email" value="salmones_factores_02@icloud.com"/>
+    <parameter name="password" value="Test234*56"/>
+
     <test name="ESPN Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="org.espn.tests.LogOutTest"/>
+            <class name="org.espn.tests.LoginTest"/>
+           <!-- <class name="org.espn.tests.LogOutTest"/>-->
             <!--<class name="org.espn.tests.DeactivateUserTest"/>-->
         </classes>
     </test>

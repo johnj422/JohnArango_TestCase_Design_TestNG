@@ -10,7 +10,7 @@ import org.hamcrest.Matcher;
 
 public class BaseTest {
 
-    private Driver driver;
+    protected Driver driver;
     protected HomePage homePage;
 
     @Parameters({"browser","url"})
@@ -33,7 +33,7 @@ public class BaseTest {
     }*/
 
     protected <T> void checkThat(String description, T actualValue, Matcher<? super T> expectedValue){
-        Logger.info("Checking that " + description.toLowerCase() + " [Expectation: %s]", expectedValue);
+        Logger.info(format("Checking that " + description + " [Expectation: %s]", expectedValue));
         try {
             MatcherAssert.assertThat(actualValue, expectedValue);
         } catch (AssertionError e){

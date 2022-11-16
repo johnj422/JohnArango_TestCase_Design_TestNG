@@ -4,33 +4,27 @@ import org.espn.configuration.WebOperations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-
 import java.util.List;
 import java.util.stream.Stream;
 
 public class HomePage extends WebOperations {
-    String userFrameModal = "oneid-iframe";
 
     @FindBy(css = ".promo-banner-container > iframe")
     private WebElement promoBannerIFrame;
 
     @FindBy(css = "#fittPageContainer .PromoBanner__CloseBtn")
     private WebElement bannerCloseButton;
-    @FindBy(css = "#global-user-trigger")
-    private WebElement userSession;
 
     @FindBy(css = "article[id='sideLogin-left-rail'] button[class='button-alt med']")
     private WebElement userLogin;
 
     @FindBy(className = "input-InputLoginValue")
-    private WebElement userEmail;
+    private WebElement emailInput;
 
     @FindBy(className = "input-InputPassword")
-    private WebElement userPassword;
+    private WebElement passwordInput;
 
-    @FindBy(css = ".oneid-iframe")
+    @FindBy(id = "oneid-iframe")
     private WebElement userFrame;
 
     @FindBy(id ="logo")
@@ -73,55 +67,51 @@ public class HomePage extends WebOperations {
     private WebElement profileLink;
 
     public HomePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
-    public boolean validatePromoBanner(){
-        return promoBannerIFrame.isDisplayed();
+    public void closeBanner() {
+        if (promoBannerIFrame.isDisplayed()){
+            super.getDriver().switchTo().frame(promoBannerIFrame);
+            clickElement(bannerCloseButton);
+        }
     }
 
-    public WebElement getBannerCloseButton() {
-        return bannerCloseButton;
-    }
-
-    public WebElement getPromoBannerIFrame() {
-        return promoBannerIFrame;
-    }
-
-    public WebElement getUserSession() {
-        return userSession;
-    }
-
-    public WebElement getUserLogin() {
-        return userLogin;
-    }
-
-    public WebElement getUserEmail() {
-        return userEmail;
-    }
-    public WebElement getUserPassword() {
-        return userPassword;
+    public void userLogin(){
+        clickElement(userLogin);
     }
 
     public WebElement getUserFrame() {
         return userFrame;
     }
-    public String getUserFrameModal() {
-        return userFrameModal;
+
+    public void changingIframe(WebElement iFrame){
+        super.getDriver().switchTo().frame(iFrame);
     }
 
-    public WebElement getEspnLogo() {
-        return espnLogo;
+    public boolean isEspnLogoDisplayed() {
+        return espnLogo.isDisplayed();
     }
 
-    public WebElement getBtnSubmit() {
-        return btnSubmit;
+    public boolean isBtnSubmitDisplayed() {
+        return btnSubmit.isDisplayed();
     }
 
-    public WebElement getBtnCreateAccount() {
-        return btnCreateAccount;
+    public boolean isBtnSignUpDisplayed() {
+        return btnCreateAccount.isDisplayed();
     }
 
+    public void sendUserEmail(String email){
+        emailInput.sendKeys(email);
+    }
+
+    public void sendUserPassword(String password){
+        passwordInput.sendKeys(password);
+    }
+
+    public void logIn(){
+        clickElement(btnSubmit);
+    }
     public WebElement getWatchLink() {
         return watchLink;
     }
