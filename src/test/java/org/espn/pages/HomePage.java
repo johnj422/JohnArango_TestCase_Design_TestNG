@@ -29,7 +29,7 @@ public class HomePage {
     @FindBy(className = "input-InputPassword")
     private WebElement userPassword;
 
-    @FindBy(css = "oneid-iframe")
+    @FindBy(css = ".oneid-iframe")
     private WebElement userFrame;
 
     @FindBy(id ="logo")

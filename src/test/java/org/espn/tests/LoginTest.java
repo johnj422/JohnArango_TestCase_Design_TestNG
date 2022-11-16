@@ -9,9 +9,10 @@ import org.tinylog.Logger;
 public class LoginTest extends BaseTest{
     @Test(priority = 1)
     public void loginTests() {
-        waitForVisibility(homePage.getPromoBannerIFrame());
-        driver.switchTo().frame(homePage.getPromoBannerIFrame());
-        clickElement(homePage.getBannerCloseButton());
+        if (homePage.validatePromoBanner()){
+            driver.switchTo().frame(homePage.getPromoBannerIFrame());
+            clickElement(homePage.getBannerCloseButton());
+        }
         waitForVisibility(homePage.getUserSession());
         Logger.info("Showing user iFrame...");
         clickElement(homePage.getUserLogin());
