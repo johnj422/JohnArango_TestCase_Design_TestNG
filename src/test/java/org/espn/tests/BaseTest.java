@@ -1,6 +1,7 @@
 package org.espn.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.espn.configuration.WebOperations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -13,12 +14,17 @@ import org.espn.pages.HomePage;
 
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTest extends WebOperations {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected Actions action;
     protected HomePage homePage;
+
+    public BaseTest(WebDriver driver) {
+        super(driver);
+    }
+
     @Parameters({"url"})
 
     @BeforeClass
