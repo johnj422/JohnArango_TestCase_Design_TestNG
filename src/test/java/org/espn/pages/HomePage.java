@@ -1,5 +1,6 @@
 package org.espn.pages;
 
+import org.espn.configuration.WebOperations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class HomePage {
+public class HomePage extends WebOperations {
     String userFrameModal = "oneid-iframe";
 
     @FindBy(css = ".promo-banner-container > iframe")
