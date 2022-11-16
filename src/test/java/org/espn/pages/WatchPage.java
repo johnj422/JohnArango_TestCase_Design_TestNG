@@ -29,9 +29,6 @@ public class WatchPage extends HomePage{
     @FindBy(css = ".user")
     private WebElement userOnline;
 
-    @FindBy(css = ".display-user")
-    private WebElement userOffline;
-
     @FindBy(css = ".display-user > span")
     private WebElement userName;
 
@@ -68,10 +65,6 @@ public class WatchPage extends HomePage{
 
     public WebElement getUserOnline() {
         return userOnline;
-    }
-
-    public String getUserOffline() {
-        return userOffline.getText();
     }
 
     public String getUserName() {

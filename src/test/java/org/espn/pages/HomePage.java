@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Objects;
+
 
 public class HomePage extends WebOperations {
 
@@ -41,17 +43,19 @@ public class HomePage extends WebOperations {
     @FindBy(id = "BtnCreateAccount")
     private WebElement btnCreateAccount;
 
-    //Watch Locators
-
-
-
-
+    //Logout Locators
 
     @FindBy(css = "li[class='user hover'] div[class='global-user'] div[class='global-user-container'] ul[class='account-management'] li a[class='small']")
     private WebElement logOutButton;
 
     @FindBy(css = "div[class='container'] li:nth-child(5) a:nth-child(1)")
     private WebElement profileLink;
+
+    @FindBy(css = ".user")
+    private WebElement userIcon;
+
+    @FindBy(css = ".display-user")
+    private WebElement userOffline;
 
     public void closeBanner() {
         if (promoBannerIFrame.isDisplayed()){
@@ -96,14 +100,16 @@ public class HomePage extends WebOperations {
         clickElement(btnSubmit);
     }
 
+    public void clickLogOutButton() {
+        clickElement(logOutButton);
+    }
 
+    public WebElement getUserIcon() {
+        return userIcon;
+    }
 
-
-
-
-
-    public WebElement getLogOutButton() {
-        return logOutButton;
+    public String validateNoUserName(){
+        return userOffline.getText();
     }
 
     public WebElement getProfileLink() {
