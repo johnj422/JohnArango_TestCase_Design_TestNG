@@ -14,5 +14,6 @@ public class LogOutTest extends WatchTest{
         Logger.info("Mouse hovering to user icon...");
         homePage.performMouseHover(homePage.getUserIcon());
         checkThat("Username is blank ", homePage.validateNoUserName(), is("Welcome!"));
+        homePage.refreshNavigation();
     }
 }

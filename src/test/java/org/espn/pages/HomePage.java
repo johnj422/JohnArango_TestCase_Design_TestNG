@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Objects;
-
 
 public class HomePage extends WebOperations {
 
@@ -34,6 +32,9 @@ public class HomePage extends WebOperations {
     @FindBy(id = "oneid-iframe")
     private WebElement userFrame;
 
+    @FindBy(css = "#Title")
+    private WebElement frameTitle;
+
     @FindBy(id ="logo")
     private WebElement espnLogo;
 
@@ -57,11 +58,21 @@ public class HomePage extends WebOperations {
     @FindBy(css = ".display-user")
     private WebElement userOffline;
 
+    @FindBy(id = "AccountDeleteLink")
+    private WebElement accountDeleteLink;
+
+    @FindBy(id = "BtnCancel")
+    private WebElement cancelBtn;
+    @FindBy(css = "#TextError")
+    private WebElement errorMsg;
+
     public void closeBanner() {
-        if (promoBannerIFrame.isDisplayed()){
-            super.getDriver().switchTo().frame(promoBannerIFrame);
-            clickElement(bannerCloseButton);
+        if (promoBannerIFrame == null) {
+            super.getDriver().switchTo().defaultContent();
         }
+
+        super.getDriver().switchTo().frame(promoBannerIFrame);
+        clickElement(bannerCloseButton);
     }
 
     public void userLogin(){
@@ -112,7 +123,36 @@ public class HomePage extends WebOperations {
         return userOffline.getText();
     }
 
-    public WebElement getProfileLink() {
-        return profileLink;
+    public void clickProfileLink() {
+        clickElement(profileLink);
+    }
+    public void refreshNavigation() {
+        super.getDriver().navigate().refresh();
+    }
+
+    public void deleteAccountLink() {
+        clickElement(accountDeleteLink);
+    }
+
+    public void clickSubmitBtn(){
+        clickElement(btnSubmit);
+    }
+    public String getIframeTitle(){
+        waitForVisibility(frameTitle);
+        return frameTitle.getText();
+    }
+    public void waitForCancelBtn(){
+        waitForClickable(cancelBtn);
+    }
+    public void waitForErrorMsg(){
+        waitForClickable(errorMsg);
+    }
+    public void validateReLogin(String email, String password){
+        userLogin();
+        changingIframe(userFrame);
+        sendUserEmail(email);
+        sendUserPassword(password);
+        clickElement(btnSubmit);
+
     }
 }
