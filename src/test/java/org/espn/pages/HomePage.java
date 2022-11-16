@@ -9,12 +9,18 @@ import java.util.stream.Stream;
 
 public class HomePage extends WebOperations {
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
+    //Promo Banner Locators
     @FindBy(css = ".promo-banner-container > iframe")
     private WebElement promoBannerIFrame;
 
     @FindBy(css = "#fittPageContainer .PromoBanner__CloseBtn")
     private WebElement bannerCloseButton;
 
+    //Login Locators
     @FindBy(css = "article[id='sideLogin-left-rail'] button[class='button-alt med']")
     private WebElement userLogin;
 
@@ -36,14 +42,7 @@ public class HomePage extends WebOperations {
     @FindBy(id = "BtnCreateAccount")
     private WebElement btnCreateAccount;
 
-    @FindBy(css = "a[name='&lpos=sitenavcustom+sitenav_watch'] span span[class='link-text']")
-    private WebElement watchLink;
-
-    @FindBy(css = ".BucketsContainer > div")
-    private List<WebElement> carrouselContainer;
-
-    @FindBy(css = ".BucketsContainer > div:nth-child(1) > section > div:nth-child(2) > div > div > ul")
-    private List<WebElement> carrouselCards;
+    //Watch Locators
 
     @FindBy(css = ".BucketsContainer > div:nth-child(1) > section > div:nth-child(2) > div > div > ul > li:nth-child(2)")
     private WebElement secondCard;
@@ -65,10 +64,6 @@ public class HomePage extends WebOperations {
 
     @FindBy(css = "div[class='container'] li:nth-child(5) a:nth-child(1)")
     private WebElement profileLink;
-
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
 
     public void closeBanner() {
         if (promoBannerIFrame.isDisplayed()){
@@ -112,17 +107,8 @@ public class HomePage extends WebOperations {
     public void logIn(){
         clickElement(btnSubmit);
     }
-    public WebElement getWatchLink() {
-        return watchLink;
-    }
 
-    public boolean getCarrouselContainer() {
-        return (carrouselContainer.size()>0);
-    }
 
-    public Stream<Object> getCarrouselCards() {
-        return carrouselCards.stream().map(WebElement::getText);
-    }
 
     public WebElement getSecondCard() {
         return secondCard;

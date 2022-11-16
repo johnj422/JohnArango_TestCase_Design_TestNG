@@ -37,7 +37,7 @@ public class BaseTest {
         try {
             MatcherAssert.assertThat(actualValue, expectedValue);
         } catch (AssertionError e){
-            Logger.error("Assertion Error: [%s]", e.getMessage().replaceAll("\n", ""));
+            Logger.error(format("Assertion Error: [%s]", e.getMessage().replaceAll("\n", "")));
         }
     }
 

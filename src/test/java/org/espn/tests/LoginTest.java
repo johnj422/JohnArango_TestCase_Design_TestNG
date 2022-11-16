@@ -3,7 +3,7 @@ package org.espn.tests;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.tinylog.Logger;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class LoginTest extends BaseTest{
 
