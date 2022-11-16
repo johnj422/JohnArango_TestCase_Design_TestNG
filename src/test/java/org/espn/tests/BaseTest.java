@@ -26,11 +26,11 @@ public class BaseTest {
         homePage = new HomePage(driver.getDriver());
     }
 
-  /*  @AfterClass
+    @AfterClass
     public void teardown(){
         Logger.info("Shutting down");
         driver.getDriver().quit();
-    }*/
+    }
 
     protected <T> void checkThat(String description, T actualValue, Matcher<? super T> expectedValue){
         Logger.info(format("Checking that " + description + " [Expectation: %s]", expectedValue));
