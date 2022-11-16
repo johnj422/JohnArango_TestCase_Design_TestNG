@@ -48,9 +48,11 @@ public class WatchPage extends HomePage{
             }
         } return count;
     }
+
     public void clickSecondCard() {
         clickElement(secondCard);
     }
+
     public boolean validateCloseButton() {
         waitForClickable(closeButton);
         return closeButton.isDisplayed();
@@ -59,6 +61,7 @@ public class WatchPage extends HomePage{
     public void waitForCloseBtn(){
         waitForClickable(closeButton);
     }
+
     public void clickCloseButton() {
         clickElement(closeButton);
     }
