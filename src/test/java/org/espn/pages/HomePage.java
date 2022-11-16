@@ -4,8 +4,7 @@ import org.espn.configuration.WebOperations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import java.util.List;
-import java.util.stream.Stream;
+
 
 public class HomePage extends WebOperations {
 
@@ -44,20 +43,9 @@ public class HomePage extends WebOperations {
 
     //Watch Locators
 
-    @FindBy(css = ".BucketsContainer > div:nth-child(1) > section > div:nth-child(2) > div > div > ul > li:nth-child(2)")
-    private WebElement secondCard;
 
-    @FindBy(css = "button.lightbox__closebtn")
-    private WebElement closeButton;
 
-    @FindBy(css = ".user")
-    private WebElement userOnline;
 
-    @FindBy(css = ".display-user")
-    private WebElement userOffline;
-
-    @FindBy(css = ".display-user > span")
-    private WebElement userName;
 
     @FindBy(css = "li[class='user hover'] div[class='global-user'] div[class='global-user-container'] ul[class='account-management'] li a[class='small']")
     private WebElement logOutButton;
@@ -110,25 +98,9 @@ public class HomePage extends WebOperations {
 
 
 
-    public WebElement getSecondCard() {
-        return secondCard;
-    }
 
-    public WebElement getCloseButton() {
-        return closeButton;
-    }
 
-    public WebElement getUserOnline() {
-        return userOnline;
-    }
 
-    public String getUserOffline() {
-        return userOffline.getText();
-    }
-
-    public String getUserName() {
-        return userName.getText();
-    }
 
     public WebElement getLogOutButton() {
         return logOutButton;

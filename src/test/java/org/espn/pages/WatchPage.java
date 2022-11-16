@@ -3,8 +3,6 @@ package org.espn.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.tinylog.Logger;
-
 import java.util.List;
 
 public class WatchPage extends HomePage{
@@ -22,6 +20,21 @@ public class WatchPage extends HomePage{
     @FindBy(css = ".BucketsContainer > div:nth-child(1) > section > div:nth-child(2) > div > div > ul > li")
     private List<WebElement> carrouselCards;
 
+    @FindBy(css = ".BucketsContainer > div:nth-child(1) > section > div:nth-child(2) > div > div > ul > li:nth-child(2)")
+    private WebElement secondCard;
+
+    @FindBy(css = "button.lightbox__closebtn")
+    private WebElement closeButton;
+
+    @FindBy(css = ".user")
+    private WebElement userOnline;
+
+    @FindBy(css = ".display-user")
+    private WebElement userOffline;
+
+    @FindBy(css = ".display-user > span")
+    private WebElement userName;
+
     public void navigateToWatch(){
         clickElement(watchLink);
     }
@@ -37,6 +50,32 @@ public class WatchPage extends HomePage{
                 count++;
             }
         } return count;
+    }
+    public void clickSecondCard() {
+        clickElement(secondCard);
+    }
+    public boolean validateCloseButton() {
+        waitForClickable(closeButton);
+        return closeButton.isDisplayed();
+    }
+    public void clickCloseButton() {
+        clickElement(closeButton);
+    }
+
+    public void clickBack(){
+        super.getDriver().navigate().back();
+    }
+
+    public WebElement getUserOnline() {
+        return userOnline;
+    }
+
+    public String getUserOffline() {
+        return userOffline.getText();
+    }
+
+    public String getUserName() {
+        return userName.getText();
     }
 
 }
