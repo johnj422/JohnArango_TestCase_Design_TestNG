@@ -26,7 +26,7 @@ public class BaseTest {
         homePage = new HomePage(driver.getDriver());
     }
 
-/*    @AfterMethod
+  /*  @AfterClass
     public void teardown(){
         Logger.info("Shutting down");
         driver.getDriver().quit();

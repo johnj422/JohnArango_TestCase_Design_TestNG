@@ -90,6 +90,9 @@ public class HomePage extends WebOperations {
     public boolean isEspnLogoDisplayed() {
         return espnLogo.isDisplayed();
     }
+    public void waitForLogo(){
+        waitForVisibility(espnLogo);
+    }
 
     public boolean isBtnSubmitDisplayed() {
         return btnSubmit.isDisplayed();

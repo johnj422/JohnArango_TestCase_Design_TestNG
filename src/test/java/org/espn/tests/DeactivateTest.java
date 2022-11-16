@@ -27,7 +27,9 @@ public class DeactivateTest extends LoginTest{
         Logger.info("Checking if deleted account allows login in...");
         homePage.clickSubmitBtn();
         homePage.validateReLogin(email, password);
-        checkThat("Account has been deactivated", homePage.getIframeTitle(), is("Account Deactivated"));
+        homePage.waitForLogo();
+        checkThat("Account has been deactivated" , homePage.getIframeTitle(), is("Account Deactivated"));
+        Logger.info("Test completed");
     }
 
 }

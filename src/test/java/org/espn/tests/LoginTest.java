@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest{
 
     @Test(priority = 1)
     public void loginTests(String email, String password) {
-        /*homePage.closeBanner();
+        homePage.closeBanner();
         homePage.userLogin();
         homePage.changingIframe(homePage.getUserFrame());
         checkThat("ESPN Logo is displayed", homePage.isEspnLogoDisplayed(), is(true));
@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest{
         Logger.info("Login In...");
         homePage.sendUserEmail(email);
         homePage.sendUserPassword(password);
-        homePage.logIn();*/
+        homePage.logIn();
     }
 
 }

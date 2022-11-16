@@ -20,6 +20,7 @@ public class WatchTest extends LoginTest{
         checkThat("Cards without title or description", watchPage.getNoTitleCards(), is(0));
         Logger.info("Clicking second carrousel's card...");
         watchPage.clickSecondCard();
+        watchPage.waitForCloseBtn();
         checkThat("Close button is displayed", watchPage.validateCloseButton(), is(true));
         Logger.info("Closing card details...");
         watchPage.clickCloseButton();

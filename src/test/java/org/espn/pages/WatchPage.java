@@ -11,7 +11,7 @@ public class WatchPage extends HomePage{
         super(driver);
     }
 
-    @FindBy(css = "a[name='&lpos=sitenavcustom+sitenav_watch'] span span[class='link-text']")
+    @FindBy(className = "watch")
     private WebElement watchLink;
 
     @FindBy(css = ".BucketsContainer > div")
@@ -54,6 +54,10 @@ public class WatchPage extends HomePage{
     public boolean validateCloseButton() {
         waitForClickable(closeButton);
         return closeButton.isDisplayed();
+    }
+
+    public void waitForCloseBtn(){
+        waitForClickable(closeButton);
     }
     public void clickCloseButton() {
         clickElement(closeButton);
