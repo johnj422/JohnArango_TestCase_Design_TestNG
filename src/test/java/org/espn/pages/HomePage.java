@@ -90,6 +90,7 @@ public class HomePage extends WebOperations {
     public boolean isEspnLogoDisplayed() {
         return espnLogo.isDisplayed();
     }
+
     public void waitForLogo(){
         waitForVisibility(espnLogo);
     }
@@ -140,16 +141,20 @@ public class HomePage extends WebOperations {
     public void clickSubmitBtn(){
         clickElement(btnSubmit);
     }
+
     public String getIframeTitle(){
         waitForVisibility(frameTitle);
         return frameTitle.getText();
     }
+
     public void waitForCancelBtn(){
         waitForClickable(cancelBtn);
     }
+
     public void waitForErrorMsg(){
         waitForClickable(errorMsg);
     }
+
     public void validateReLogin(String email, String password){
         userLogin();
         changingIframe(userFrame);
